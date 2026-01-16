@@ -91,26 +91,32 @@ public class Filter : IDisposable
             return false;
         }
 
-        if (!listing[filter.LootRule])
+        if (listing.LootRules == 0 && !filter.NoLootRule)
         {
             Plugin.Log.Verbose("early exit 6");
             return false;
         }
 
-        if (((listing.DutyFinderSettings ^ filter.DutyFinderSettings) & ~filter.DutyFinderSettings) > 0) {
+        if (!listing[filter.LootRule])
+        {
             Plugin.Log.Verbose("early exit 7");
+            return false;
+        }
+
+        if (((listing.DutyFinderSettings ^ filter.DutyFinderSettings) & ~filter.DutyFinderSettings) > 0) {
+            Plugin.Log.Verbose("early exit 8");
             return false;
         }
 
         if (!listing[filter.Conditions])
         {
-            Plugin.Log.Verbose("early exit 8");
+            Plugin.Log.Verbose("early exit 9");
             return false;
         }
 
         if (!listing[filter.Objectives])
         {
-            Plugin.Log.Verbose("early exit 9");
+            Plugin.Log.Verbose("early exit 10");
             return false;
         }
 
@@ -119,7 +125,7 @@ public class Filter : IDisposable
         {
             if (!filter.Keywords.CheckDescription(listing.Description.TextValue))
             {
-                Plugin.Log.Verbose("early exit 10");
+                Plugin.Log.Verbose("early exit 11");
                 return false;
             }
         }

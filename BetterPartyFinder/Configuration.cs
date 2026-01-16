@@ -44,6 +44,7 @@ public class ConfigurationFilter
     // use nosol if trying to avoid spam
 
     public SearchAreaFlags SearchArea { get; set; } = (SearchAreaFlags) ~(uint) 0;
+    public bool NoLootRule { get; set; } = true;
     public LootRuleFlags LootRule { get; set; } = ~LootRuleFlags.None;
     public DutyFinderSettingsFlags DutyFinderSettings { get; set; } = ~DutyFinderSettingsFlags.None;
     public ConditionFlags Conditions { get; set; } = (ConditionFlags) ~(uint) 0;

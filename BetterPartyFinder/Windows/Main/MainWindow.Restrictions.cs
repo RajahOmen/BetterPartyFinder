@@ -47,7 +47,8 @@ public partial class MainWindow
 
         DrawSeparator();
 
-        filter[LootRuleFlags.GreedOnly] = DrawRestrictionEntry("Greed Only", filter[LootRuleFlags.GreedOnly]);
+        filter.NoLootRule = DrawRestrictionEntry("No Loot Rule", filter.NoLootRule);
+		filter[LootRuleFlags.GreedOnly] = DrawRestrictionEntry("Greed Only", filter[LootRuleFlags.GreedOnly]);
         filter[LootRuleFlags.Lootmaster] = DrawRestrictionEntry("Lootmaster", filter[LootRuleFlags.Lootmaster]);
 
         DrawSeparator();
